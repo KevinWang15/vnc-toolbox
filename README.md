@@ -1,9 +1,9 @@
-# VNC + Chrome + Node.js in Docker
+# VNC + Chromium + Node.js in Docker
 
 This Docker container provides a lightweight, Ubuntu-based desktop environment accessible via VNC and a web browser. It includes:
 
 - **Xfce** desktop environment
-- **Google Chrome**
+- **Chromium**
 - **Node.js (v18.x)**
 - **x11vnc** (VNC server)
 - **noVNC** (web-based VNC client)
