@@ -11,17 +11,16 @@ RUN apt-get update && apt-get install -y \
     xfce4 xfce4-goodies \
     x11vnc xvfb \
     wget curl gnupg2 software-properties-common \
-    git
+    curl vim git
 
 # Install Node.js (example uses Node 18.x - adjust if you prefer a different version)
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get install -y nodejs
 
-# Install Google Chrome
-RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-    echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
+# Install Chromium using PPA
+RUN add-apt-repository ppa:saiarcot895/chromium-dev && \
     apt-get update && \
-    apt-get install -y google-chrome-stable
+    apt-get install -y chromium-browser
 
 # Install noVNC (and its websockify dependency)
 RUN git clone https://github.com/novnc/noVNC.git /opt/noVNC && \
